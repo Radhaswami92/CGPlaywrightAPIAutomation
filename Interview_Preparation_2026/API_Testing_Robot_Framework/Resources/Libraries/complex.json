@@ -1,0 +1,78 @@
+{
+  "project_id": "PRJ-992834",
+  "project_name": "Next-Gen Dashboard Redesign",
+  "status": "active",
+  "priority_score": 8.5,
+  "is_confidential": false,
+  "metadata": {
+    "created_at": "2024-05-20T14:30:00Z",
+    "last_updated": "2024-05-26T09:15:22Z",
+    "version": "2.1.0",
+    "tags": ["frontend", "UI/UX", "react", "enterprise"]
+  },
+  "stakeholders": [
+    {
+      "id": "USR-001",
+      "name": "Sarah Chen",
+      "role": "Lead Architect",
+      "contact": {
+        "email": "sarah.c@company.com",
+        "slack": "@schen_arch",
+        "timezone": "UTC-5"
+      },
+      "active_tasks": 3
+    },
+    {
+      "id": "USR-042",
+      "name": "Alex Rivera",
+      "role": "Product Owner",
+      "contact": {
+        "email": "a.rivera@company.com",
+        "slack": null,
+        "timezone": "UTC+1"
+      },
+      "active_tasks": 0
+    }
+  ],
+  "milestones": {
+    "phase_1": {
+      "title": "Discovery & Research",
+      "budget_allocation": 15000.50,
+      "tasks": [
+        {
+          "task_id": "TSK-101",
+          "description": "User interviews with department heads",
+          "completed": true,
+          "history": [
+            { "timestamp": "2024-05-21T08:00:00Z", "action": "started" },
+            { "timestamp": "2024-05-23T17:00:00Z", "action": "finished" }
+          ]
+        },
+        {
+          "task_id": "TSK-102",
+          "description": "Competitive analysis report",
+          "completed": false,
+          "assignee": "USR-001",
+          "dependencies": ["TSK-101"]
+        }
+      ]
+    },
+    "phase_2": {
+      "title": "Prototyping",
+      "budget_allocation": 45000.00,
+      "tasks": []
+    }
+  },
+  "settings": {
+    "notifications": {
+      "email_alerts": true,
+      "push_notifications": false,
+      "digest_frequency": "daily"
+    },
+    "permissions": {
+      "view": ["all"],
+      "edit": ["admin", "lead"],
+      "delete": ["owner"]
+    }
+  }
+}

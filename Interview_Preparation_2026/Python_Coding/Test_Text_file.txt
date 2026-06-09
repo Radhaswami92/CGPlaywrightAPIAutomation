@@ -1,0 +1,7 @@
+Name    Department  Eid Salary
+Jeet    CT  123 10000000
+Rahul   DT  124 20000000
+Jagjit HR 126    100000000
+Tanzania HR 127    100000000
+Jagjit HR 126    100000000
+Tanzania HR 127    100000000

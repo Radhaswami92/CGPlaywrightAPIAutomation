@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.8.1 on win32)" generated="20220209 19:08:53.148" rpa="false" schemaversion="2">
+<suite id="s1" name="Get Api" source="C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_Practice\XML\Test_Cases\get_api.robot">
+<test id="s1-t1" name="User succesfully fetches the list of all the videogames">
+<kw name="Create session for base url" library="All_Generic" type="SETUP">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220209 19:08:53.258" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220209 19:08:53.258" endtime="20220209 19:08:53.258"/>
+</kw>
+<status status="PASS" starttime="20220209 19:08:53.258" endtime="20220209 19:08:53.258"/>
+</kw>
+<kw name="Given get the complete list of all video games" library="Resources_get">
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>${Relative_url}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20220209 19:08:53.260" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20220209 19:08:53.276" level="INFO">GET Request : url=http://localhost:8080/app/videogames 
+ path_url=/app/videogames 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220209 19:08:53.276" level="INFO">Detected declarative mark in sequence. Priority +1 given for utf_8.</msg>
+<msg timestamp="20220209 19:08:53.286" level="INFO">utf_8 passed initial chaos probing. Mean measured chaos is 0.000000 %</msg>
+<msg timestamp="20220209 19:08:53.288" level="INFO">We detected language [('English', 1.0), ('Dutch', 1.0), ('Indonesian', 1.0)] using utf_8</msg>
+<msg timestamp="20220209 19:08:53.288" level="INFO">utf_8 is most likely the one. Stopping the process.</msg>
+<msg timestamp="20220209 19:08:53.288" level="INFO">GET Response : url=http://localhost:8080/app/videogames 
+ status=200, reason= 
+ headers={'Content-Type': 'application/xml', 'Content-Length': '1862', 'Date': 'Wed, 09 Feb 2022 13:38:53 GMT'} 
+ body=&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGames&gt;&lt;videoGame category="Shooter" rating="Universal"&gt;&lt;id&gt;1&lt;/id&gt;&lt;name&gt;Resident Evil 4&lt;/name&gt;&lt;releaseDate&gt;2005-10-01T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;85&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Driving" rating="Universal"&gt;&lt;id&gt;2&lt;/id&gt;&lt;name&gt;Gran Turismo 3&lt;/name&gt;&lt;releaseDate&gt;2001-03-10T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;91&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Puzzle" rating="Universal"&gt;&lt;id&gt;3&lt;/id&gt;&lt;name&gt;Tetris&lt;/name&gt;&lt;releaseDate&gt;1984-06-25T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;88&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Platform" rating="Universal"&gt;&lt;id&gt;4&lt;/id&gt;&lt;name&gt;Super Mario 64&lt;/name&gt;&lt;releaseDate&gt;1996-10-20T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;90&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Adventure" rating="PG-13"&gt;&lt;id&gt;5&lt;/id&gt;&lt;name&gt;The Legend of Zelda: Ocarina of Time&lt;/name&gt;&lt;releaseDate&gt;1998-12-10T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;93&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Shooter" rating="Mature"&gt;&lt;id&gt;6&lt;/id&gt;&lt;name&gt;Doom&lt;/name&gt;&lt;releaseDate&gt;1993-02-18T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;81&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Puzzle" rating="Universal"&gt;&lt;id&gt;7&lt;/id&gt;&lt;name&gt;Minecraft&lt;/name&gt;&lt;releaseDate&gt;2011-12-05T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;77&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Strategy" rating="Universal"&gt;&lt;id&gt;8&lt;/id&gt;&lt;name&gt;SimCity 2000&lt;/name&gt;&lt;releaseDate&gt;1994-09-11T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;88&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="RPG" rating="PG-13"&gt;&lt;id&gt;9&lt;/id&gt;&lt;name&gt;Final Fantasy VII&lt;/name&gt;&lt;releaseDate&gt;1997-08-20T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;97&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Driving" rating="Mature"&gt;&lt;id&gt;10&lt;/id&gt;&lt;name&gt;Grand Theft Auto III&lt;/name&gt;&lt;releaseDate&gt;2001-04-23T00:00:00+05:30&lt;/releaseDate&gt;&lt;reviewScore&gt;90&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;/videoGames&gt; 
+ </msg>
+<msg timestamp="20220209 19:08:53.288" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220209 19:08:53.260" endtime="20220209 19:08:53.288"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${Api_response}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220209 19:08:53.289" level="INFO">${Api_response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220209 19:08:53.288" endtime="20220209 19:08:53.289"/>
+</kw>
+<status status="PASS" starttime="20220209 19:08:53.260" endtime="20220209 19:08:53.289"/>
+</kw>
+<kw name="When user prints the status code into the console" library="Resources_get">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Api_response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220209 19:08:53.290" endtime="20220209 19:08:53.291"/>
+</kw>
+<status status="PASS" starttime="20220209 19:08:53.290" endtime="20220209 19:08:53.291"/>
+</kw>
+<kw name="And user prints the content into the console" library="Resources_get">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Api_response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220209 19:08:53.291" endtime="20220209 19:08:53.292"/>
+</kw>
+<kw name="Save Xml" library="XML">
+<arg>${Api_response.content}</arg>
+<arg>C:/Users/JIBISWAS/PycharmProjects/FirstAutomationSetting/API_Practice/XML/get_res.xml</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Saves the given element to the specified file.</doc>
+<msg timestamp="20220209 19:08:53.296" level="INFO" html="true">XML saved to &lt;a href="file://C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_Practice\XML\get_res.xml"&gt;C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_Practice\XML\get_res.xml&lt;/a&gt;.</msg>
+<status status="PASS" starttime="20220209 19:08:53.292" endtime="20220209 19:08:53.296"/>
+</kw>
+<status status="PASS" starttime="20220209 19:08:53.291" endtime="20220209 19:08:53.296"/>
+</kw>
+<kw name="Then user validates the reponse code returned" library="Resources_get">
+<kw name="Convert To String" library="BuiltIn">
+<var>${Response_code_returned}</var>
+<arg>${Api_response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220209 19:08:53.297" level="INFO">${Response_code_returned} = 200</msg>
+<status status="PASS" starttime="20220209 19:08:53.296" endtime="20220209 19:08:53.297"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Response_code_returned}</arg>
+<arg>${Expected_response_code}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220209 19:08:53.297" endtime="20220209 19:08:53.297"/>
+</kw>
+<status status="PASS" starttime="20220209 19:08:53.296" endtime="20220209 19:08:53.297"/>
+</kw>
+<kw name="validate xml response">
+<msg timestamp="20220209 19:08:53.301" level="FAIL">No keyword with name 'validate xml response' found.</msg>
+<status status="FAIL" starttime="20220209 19:08:53.301" endtime="20220209 19:08:53.301"/>
+</kw>
+<status status="FAIL" starttime="20220209 19:08:53.257" endtime="20220209 19:08:53.303">No keyword with name 'validate xml response' found.</status>
+</test>
+<status status="FAIL" starttime="20220209 19:08:53.150" endtime="20220209 19:08:53.304"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Get Api">Get Api</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220209 19:08:53.255" level="ERROR">Error in file 'C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_Practice\XML\Resources\Resources_get.robot' on line 6: Test library 'API_Practice\main.py' does not exist.</msg>
+<msg timestamp="20220209 19:08:53.256" level="ERROR">Error in file 'C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_Practice\XML\Test_Cases\get_api.robot' on line 4: Test library 'API_Practice\main.py' does not exist.</msg>
+<msg timestamp="20220209 19:08:53.260" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>

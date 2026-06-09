@@ -1,0 +1,7 @@
+*** Test_Cases ***,${id},${name},${releaseDate},${reviewScore},${category},${rating},${expected_response_code},${header_type}
+Valid Test case_data,81,Gname1,2021-12-09T12:35:02.038Z,61,Action1,9,200,application/json
+Invalid Release Date format,82,zname1,$%^&&**********&^*^**^**,67,Action2,9,400,application/json
+Invalid Review Score,83,Revie,2021-12-09T12:35:02.038Z,$%^^,"""""","""""",400,application/json
+Invalid Blank id,"""""","""""","""""","""""","""""","""""",400,application/json
+Invalid string value for id,string,Fight,"""""","""""","""""","""""",400,application/json
+Blank data with valid id,84,"""""","""""","""""","""""","""""",200,application/json

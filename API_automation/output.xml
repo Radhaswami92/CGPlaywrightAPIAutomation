@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.8.1 on win32)" generated="20250806 16:01:27.327" rpa="false" schemaversion="2">
+<suite id="s1" name="Demogetreq" source="C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_automation\demogetreq.robot">
+<test id="s1-t1" name="sample">
+<kw name="Log To Console" library="BuiltIn">
+<arg>"hello"</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20250806 16:01:27.542" endtime="20250806 16:01:27.543"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${sasa}</arg>
+<doc>Logs the given message to the console.</doc>
+<msg timestamp="20250806 16:01:27.545" level="FAIL">Variable '${sasa}' not found.</msg>
+<status status="FAIL" starttime="20250806 16:01:27.543" endtime="20250806 16:01:27.545"/>
+</kw>
+<status status="FAIL" starttime="20250806 16:01:27.541" endtime="20250806 16:01:27.547">Variable '${sasa}' not found.</status>
+</test>
+<status status="FAIL" starttime="20250806 16:01:27.339" endtime="20250806 16:01:27.550"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Demogetreq">Demogetreq</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20250806 16:01:27.340" level="ERROR">Error in file 'C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_automation\demogetreq.robot' on line 7: Setting variable '&amp;{sasa}' failed: Invalid dictionary variable item '{}'. Items must use 'name=value' syntax or be dictionary variables themselves.</msg>
+<msg timestamp="20250806 16:01:27.341" level="ERROR">Error in file 'C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_automation\demogetreq.robot' on line 8: Setting variable '&amp;{sasa}['a']' failed: Invalid variable name '&amp;{sasa}['a']='.</msg>
+<msg timestamp="20250806 16:01:27.342" level="ERROR">Error in file 'C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_automation\demogetreq.robot' on line 9: Setting variable '&amp;{sasa}['b']' failed: Invalid variable name '&amp;{sasa}['b']='.</msg>
+<msg timestamp="20250806 16:01:27.343" level="ERROR">Error in file 'C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\API_automation\demogetreq.robot' on line 10: Setting variable '&amp;{sasa}['c']' failed: Invalid variable name '&amp;{sasa}['c']='.</msg>
+</errors>
+</robot>

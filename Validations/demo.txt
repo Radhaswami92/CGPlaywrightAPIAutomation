@@ -1,0 +1,6 @@
+Sl_No.      Employee_Name       Employee_ID     Bank_Account_No     Bank_IFSC_Code      Salary_Amount
+1 	Rock Island 	EMP1001 	1.005E+14 	                        1000000
+2 	Peter Parker 	EMP1002 	1.005E+14 			IDFC0002189 	2000000
+3 	Noman Skecth 	EMP1003 	1.005E+14 			ICICI0002182 	3000000
+4 	Chris Alter 	EMP1004 	1.005E+14 					        4000000
+5 	Robert Guin 	EMP1005 	1.005E+14 			HSBC0002184 	5000000

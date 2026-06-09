@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.8.1 on win32)" generated="20260604 20:21:52.012" rpa="false" schemaversion="2">
+<suite id="s1" name="Test complex xml part2" source="C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\Interview_Preparation_2026\API_Testing_Robot_Framework\Miscellaneous\Test_complex_xml_part2.robot">
+<test id="s1-t1" name="Load and print the value">
+<kw name="Parse Xml" library="XML">
+<var>${xml}</var>
+<arg>C:/Users/JIBISWAS/PycharmProjects/FirstAutomationSetting/Interview_Preparation_2026/API_Testing_Robot_Framework/Resources/Libraries/complex.xml</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<msg timestamp="20260604 20:21:52.140" level="INFO">${xml} = &lt;Element 'orders' at 0x03A7FF00&gt;</msg>
+<status status="PASS" starttime="20260604 20:21:52.138" endtime="20260604 20:21:52.140"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${value}</var>
+<arg>${xml}</arg>
+<arg>.//order[@id='ORD-20260527-001']/orderSummary/totalAmount</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20260604 20:21:52.141" level="INFO">${value} = 1418.97</msg>
+<status status="PASS" starttime="20260604 20:21:52.140" endtime="20260604 20:21:52.141"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260604 20:21:52.142" endtime="20260604 20:21:52.143"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${value}</arg>
+<arg>1418.97</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20260604 20:21:52.143" endtime="20260604 20:21:52.143"/>
+</kw>
+<status status="PASS" starttime="20260604 20:21:52.137" endtime="20260604 20:21:52.144"/>
+</test>
+<status status="PASS" starttime="20260604 20:21:52.022" endtime="20260604 20:21:52.146"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test complex xml part2">Test complex xml part2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

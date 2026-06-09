@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders
+    xmlns="http://example.com"
+    xmlns:xsi="http://w3.org"
+        xsi:schemaLocation="http://example.com orders.xsd">
+    <order id="ORD-20260527-001" status="SHIPPED">
+        <customer>
+            <customerId>CUST-8472</customerId>
+            <personalDetails>
+                <firstName>Jane</firstName>
+                <lastName>Doe</lastName>
+                <email>jane.doe@example.com</email>
+                <contactNumber>+1-555-0198</contactNumber>
+            </personalDetails>
+            <shippingAddress>
+                <street>123 Tech Boulevard</street>
+                <city>San Francisco</city>
+                <state>CA</state>
+                <zipCode>94105</zipCode>
+                <country>USA</country>
+            </shippingAddress>
+        </customer>
+        <orderSummary>
+            <itemsCount>2</itemsCount>
+            <currency>USD</currency>
+            <subtotal>1299.98</subtotal>
+            <tax>103.99</tax>
+            <shippingCost>15.00</shippingCost>
+            <totalAmount>1418.97</totalAmount>
+        </orderSummary>
+        <items>
+            <item id="ITEM-1001" category="Electronics">
+                <productName>Wireless Noise-Canceling Headphones</productName>
+                <sku>WNC-HDP-BLK</sku>
+                <quantity>1</quantity>
+                <unitPrice>299.99</unitPrice>
+                <attributes>
+                    <color>Matte Black</color>
+                    <warranty>2 Years</warranty>
+                </attributes>
+            </item>
+            <item id="ITEM-1002" category="Electronics">
+                <productName>Ultra-Slim 4K Monitor</productName>
+                <sku>MON-4K-27</sku>
+                <quantity>1</quantity>
+                <unitPrice>999.99</unitPrice>
+                <attributes>
+                    <size>27-inch</size>
+                    <refreshRate>144Hz</refreshRate>
+                </attributes>
+            </item>
+        </items>
+        <fulfillment>
+            <carrier>GlobalExpress</carrier>
+            <trackingNumber>GE998273412X</trackingNumber>
+            <estimatedDelivery>2026-06-01T18:00:00Z</estimatedDelivery>
+        </fulfillment>
+    </order>
+</orders>
