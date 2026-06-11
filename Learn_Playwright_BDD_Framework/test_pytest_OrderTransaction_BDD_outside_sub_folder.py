@@ -6,7 +6,7 @@ from Learn_Playwright_BDD_Framework.PageObjects.LoginPage import LoginPage
 from Learn_Playwright_BDD_Framework.Utils.apiBase import APIUtils
 from Learn_Playwright_BDD_Framework.conftest import browser_instance
 
-scenarios(r"C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\Learn_Playwright_BDD_Framework\features\OrderTransaction.feature")
+scenarios(r"C:\Users\JEET BISWAS\PycharmProjects\CGPlaywrightAPIAutomation\Learn_Playwright_BDD_Framework\features\OrderTransaction.feature")
 
 
 @pytest.fixture()

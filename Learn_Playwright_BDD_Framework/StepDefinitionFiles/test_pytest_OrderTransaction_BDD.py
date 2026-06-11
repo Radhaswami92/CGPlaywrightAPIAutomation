@@ -5,7 +5,7 @@ from pytest_bdd import given, when, then, parsers, scenarios
 from Learn_Playwright_BDD_Framework.PageObjects.LoginPage import LoginPage
 from Learn_Playwright_BDD_Framework.Utils.apiBase import APIUtils
 
-scenarios(r"C:\Users\JIBISWAS\PycharmProjects\FirstAutomationSetting\Learn_Playwright_BDD_Framework\features\OrderTransaction.feature")
+scenarios(r"C:\Users\JEET BISWAS\PycharmProjects\CGPlaywrightAPIAutomation\Learn_Playwright_BDD_Framework\features\OrderTransaction.feature")
 
 
 @pytest.fixture()
