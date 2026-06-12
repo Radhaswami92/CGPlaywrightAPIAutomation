@@ -1,5 +1,5 @@
 pipeline {
-    // 1. Tell Jenkins to start the workspace on your Windows machine first
+    // Runs the initial steps on your Windows agent
     agent any
 
     stages {
@@ -12,22 +12,25 @@ pipeline {
         stage('Run Playwright Tests in Docker') {
             steps {
                 script {
-                    // 2. This structure forces Jenkins to run the container using Linux commands, bypassing the Windows 'bat' crash
-                    docker.image('mcr.microsoft.com/playwright/python:v1.60.0-noble').inside('-u root --ipc=host') {
+                    // This environment variable forces Jenkins to map Windows paths safely into the Linux container
+                    withEnv(['WORKSPACE_LINKED_TO_C=true']) {
+                        docker.image('mcr.microsoft.com/playwright/python:v1.60.0-noble').inside('-u root --ipc=host') {
 
-                        // All commands inside this block run smoothly on Linux rules
-                        sh 'pip install --upgrade pip'
+                            stage('Install Dependencies') {
+                                sh 'pip install --upgrade pip'
+                                sh '''
+                                if [ -f requirements.txt ]; then
+                                    pip install -r requirements.txt
+                                elif [ -f Learn_Playwright_BDD_Framework/requirements.txt ]; then
+                                    pip install -r Learn_Playwright_BDD_Framework/requirements.txt
+                                fi
+                                '''
+                            }
 
-                        sh '''
-                        if [ -f requirements.txt ]; then
-                            pip install -r requirements.txt
-                        elif [ -f Learn_Playwright_BDD_Framework/requirements.txt ]; then
-                            pip install -r Learn_Playwright_BDD_Framework/requirements.txt
-                        fi
-                        '''
-
-                        // Runs your exact target Python folder command
-                        sh 'python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles || true'
+                            stage('Execute pytest') {
+                                sh 'python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles || true'
+                            }
+                        }
                     }
                 }
             }
@@ -36,7 +39,7 @@ pipeline {
 
     post {
         always {
-            echo 'Playwright execution complete.'
+            echo 'Playwright execution cycle completed.'
         }
     }
 }
