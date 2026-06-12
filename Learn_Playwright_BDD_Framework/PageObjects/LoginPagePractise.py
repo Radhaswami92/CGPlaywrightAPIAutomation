@@ -22,7 +22,7 @@ class LoginPagePractise:
     def select_admin_dropdown(self):
         # Select the dropdown and choose "Admin" option
         dropdown = self.page_pr.locator("select.form-control")
-        dropdown.select_option("adm")  # value attribute for Admin option
+        dropdown.select_option("Consultant")  # value attribute for Admin option
 
     def select_confirmation_checkbox(self):
         # Select the checkbox for terms and conditions
