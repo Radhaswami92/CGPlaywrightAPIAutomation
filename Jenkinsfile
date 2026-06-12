@@ -5,7 +5,6 @@ pipeline {
             args '-u root --init --ipc=host'
         }
 
-    }
 
     stages {
         stage('Checkout Source Code') {
