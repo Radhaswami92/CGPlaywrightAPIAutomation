@@ -1,10 +1,10 @@
 pipeline {
     agent {
         docker{
-            image 'mcr.microsoft.com/playwright/python:v1.60.0-noble' }
+            image 'mcr.microsoft.com/playwright/python:v1.60.0-noble'
             args '-u root --init --ipc=host'
         }
-
+    }
 
     stages {
         stage('Checkout Source Code') {
