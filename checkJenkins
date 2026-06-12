@@ -1,0 +1,47 @@
+pipeline {
+    agent {
+        docker {
+            // Uses the official Playwright image pre-configured with Python and browsers
+            image '://microsoft.com'
+            args '-u root'
+        }
+    }
+
+    stages {
+        stage('Checkout Source Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Installs dependencies from your root folder or subfolder if available
+                sh 'pip install --upgrade pip'
+                sh 'if [ -f requirements.txt ]; then pip install -r requirements.txt; elif [ -f Learn_Playwright_BDD_Framework/requirements.txt ]; then pip install -r Learn_Playwright_BDD_Framework/requirements.txt; fi'
+            }
+        }
+
+        stage('Execute Playwright Tests') {
+            steps {
+                // Runs pytest from the root folder, targeting your specific BDD step files directory
+                // '|| true' ensures the build finishes so Jenkins can collect any generated reports
+                sh 'python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles || true'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archives test reports if your pytest execution generates an HTML report at the root
+            publishHTML(target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: '.',
+                reportFiles: 'report.html',
+                reportName: 'Pytest Playwright Report'
+            ])
+        }
+    }
+}

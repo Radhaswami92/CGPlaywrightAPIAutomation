@@ -4,8 +4,15 @@ from pytest_bdd import given, when, then, parsers, scenarios
 
 from Learn_Playwright_BDD_Framework.PageObjects.LoginPage import LoginPage
 from Learn_Playwright_BDD_Framework.Utils.apiBase import APIUtils
+from pathlib import Path
 
-scenarios(r"C:\Users\JEET BISWAS\PycharmProjects\CGPlaywrightAPIAutomation\Learn_Playwright_BDD_Framework\features\OrderTransaction.feature")
+current_script = Path(__file__).resolve()
+
+# 2. Go up 2 levels: Python_Coding -> Interview_Preparation_2026 -> CGPlaywrightAPIAutomation
+project_root = current_script.parents[2]
+
+print(project_root)
+scenarios(str(project_root) + r"\Learn_Playwright_BDD_Framework\features\OrderTransaction.feature")
 
 
 @pytest.fixture()

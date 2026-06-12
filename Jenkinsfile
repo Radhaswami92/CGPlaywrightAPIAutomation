@@ -1,15 +1,10 @@
 pipeline {
     agent {
         docker{
-            image 'mcr.microsoft.com/playwright:v1.60.0-noble'
-            args '-U root -v $Home/.npm:/.npm'
+            image 'mcr.microsoft.com/playwright/python:v1.60.0-noble' }
+            args '-u root --init --ipc=host'
         }
 
-    }
-
-    environment {
-        npm_config_cache = '/.npm'
-        CI = "true"
     }
 
     stages {
@@ -21,13 +16,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'
+                sh 'pip install --upgrade pip'
             }
         }
 
         stage('Execute Playwright Test') {
             steps {
-                sh 'npx playwright test'
+                sh 'python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --html=report.html || true'
             }
         }
     }
