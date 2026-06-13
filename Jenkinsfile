@@ -1,34 +1,21 @@
 pipeline {
-    // 1. Allocate a standard workspace node executor first
     agent any
-
     stages {
-        stage('Execute Playwright Automation Suite') {
-            // 2. Instruct Jenkins to run all steps inside this stage inside your container
-            agent {
-                docker {
-                    image 'mcr.microsoft.com/playwright/python:v1.60.0-noble'
-                    args '-u root'
-                }
+        stage('Checkout Code') {
+            steps {
+                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: 'master'
             }
-            stages {
-                stage('Checkout Code') {
-                    steps {
-                        git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: 'master'
-                    }
-                }
-                stage('Install Packages') {
-                    steps {
-                        // Standard Linux shell commands are now natively supported here
-                        sh 'python -m pip install --upgrade pip'
-                        sh 'pip install pytest pytest-bdd'
-                    }
-                }
-                stage('Run Tests') {
-                    steps {
-                        sh 'python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles'
-                    }
-                }
+        }
+        stage('Execute Entirely Inside Playwright Container') {
+            steps {
+                // This command natively forces the container to open, installs packages, and executes tests entirely within its environment.
+                bat '''
+                    docker run --rm ^
+                    -v "%WORKSPACE%":/workspace ^
+                    -w /workspace ^
+                    mcr.microsoft.com/playwright/python:v1.60.0-noble ^
+                    bash -c "python -m pip install --upgrade pip && pip install pytest pytest-bdd && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles"
+                '''
             }
         }
     }
