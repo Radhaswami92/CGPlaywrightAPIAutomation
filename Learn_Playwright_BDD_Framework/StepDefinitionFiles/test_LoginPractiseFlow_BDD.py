@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 from playwright.sync_api import Playwright
 from pytest_bdd import given, when, then, parsers, scenarios
@@ -8,7 +10,9 @@ import os
 #project_root = os.path.join("Learn_Playwright_BDD_Framework", "features", "LoginPractiseFlow.feature")
 #scenarios(r"C:\Users\JEET BISWAS\PycharmProjects\CGPlaywrightAPIAutomation\Learn_Playwright_BDD_Framework\features\LoginPractiseFlow.feature")
 #scenarios(project_root)
-scenarios("../features/LoginPractiseFlow.feature")
+#scenarios("../features/LoginPractiseFlow.feature")
+FEATURE_PATH = Path(__file__).resolve().parent.parent / "features" / "LoginPractiseFlow.feature"
+scenarios(str(FEATURE_PATH))
 
 @pytest.fixture()
 def shared_data():
