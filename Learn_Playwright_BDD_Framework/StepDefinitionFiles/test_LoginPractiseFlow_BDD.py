@@ -5,9 +5,10 @@ from pytest_bdd import given, when, then, parsers, scenarios
 from Learn_Playwright_BDD_Framework.PageObjects.LoginPagePractise import LoginPagePractise
 from Learn_Playwright_BDD_Framework.PageObjects.ShopPage import ShopPage
 import os
-project_root = os.path.join("Learn_Playwright_BDD_Framework", "features", "OrderTransaction.feature")
+project_root = os.path.join("Learn_Playwright_BDD_Framework", "features", "LoginPractiseFlow.feature")
 #scenarios(r"C:\Users\JEET BISWAS\PycharmProjects\CGPlaywrightAPIAutomation\Learn_Playwright_BDD_Framework\features\LoginPractiseFlow.feature")
-scenarios(project_root)
+#scenarios(project_root)
+scenarios("../features/LoginPractiseFlow.feature")
 
 @pytest.fixture()
 def shared_data():

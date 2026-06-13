@@ -15,7 +15,8 @@ project_root = os.path.join("Learn_Playwright_BDD_Framework", "features", "Order
 # project_root = current_script.parents[2]
 #
 # print(project_root)
-scenarios(project_root)
+#scenarios(project_root)
+scenarios("../features/OrderTransaction.feature")
 
 
 @pytest.fixture()
