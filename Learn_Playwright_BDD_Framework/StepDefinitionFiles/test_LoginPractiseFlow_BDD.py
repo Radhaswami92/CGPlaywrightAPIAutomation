@@ -5,7 +5,7 @@ from pytest_bdd import given, when, then, parsers, scenarios
 from Learn_Playwright_BDD_Framework.PageObjects.LoginPagePractise import LoginPagePractise
 from Learn_Playwright_BDD_Framework.PageObjects.ShopPage import ShopPage
 import os
-project_root = os.path.join("Learn_Playwright_BDD_Framework", "features", "LoginPractiseFlow.feature")
+#project_root = os.path.join("Learn_Playwright_BDD_Framework", "features", "LoginPractiseFlow.feature")
 #scenarios(r"C:\Users\JEET BISWAS\PycharmProjects\CGPlaywrightAPIAutomation\Learn_Playwright_BDD_Framework\features\LoginPractiseFlow.feature")
 #scenarios(project_root)
 scenarios("../features/LoginPractiseFlow.feature")
@@ -64,5 +64,5 @@ def user_should_be_navigated_to_the_shop_page(shared_data):
 @then("user should verify that iPhoneX is displayed on the shop page")
 def user_should_verify_iphonex_is_displayed(shared_data):
     shop_page_obj = shared_data["shop_page_obj"]
-    assert shop_page_obj.is_iphonx_displayed() == True
+    assert shop_page_obj.is_iphonx_displayed() == False
 

@@ -13,7 +13,7 @@ pipeline {
                     -v "%WORKSPACE%":/workspace ^
                     -w /workspace ^
                     mcr.microsoft.com/playwright/python:v1.60.0-noble ^
-                    bash -c "python -m pip install --upgrade pip && pip install pytest pytest-bdd pytest-playwright && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles"
+                    bash -c "python -m pip install --upgrade pip && pip install pytest pytest-playwright && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles"
                 '''
             }
         }
