@@ -24,14 +24,14 @@ def browser_instance(playwright: Playwright, request):
     environment = request.config.getoption("url_name")
     if browser_n == "chrome":
         #browser = playwright.chromium.connect("ws://127.0.0.1:3000/")
-        browser = playwright.chromium.launch(headless=False)
+        browser = playwright.chromium.launch(headless=True)
     elif browser_n == "firefox":
         #browser = playwright.firefox.connect("ws://127.0.0.1:3000/")
-        browser = playwright.firefox.launch(headless=False)
+        browser = playwright.firefox.launch(headless=True)
     else:
         # Prevents UnboundLocalError by creating a default browser instance
         #browser = playwright.chromium.connect("ws://127.0.0.1:3000/")
-        browser = playwright.chromium.launch(headless=False)
+        browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
     page = context.new_page()
     if environment == "staging":
