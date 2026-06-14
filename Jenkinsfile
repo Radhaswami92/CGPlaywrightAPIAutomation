@@ -22,10 +22,10 @@ pipeline {
     post {
         always {
             script {
-                if (${params.Report_Type} == "Allure" || ${params.Report_Type} == "Both") {
+                if (params.Report_Type == "Allure" || params.Report_Type == "Both") {
                     allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
                 }
-                if (${params.Report_Type} == "HTML" || ${params.Report_Type} == "Both") {
+                if (params.Report_Type == "HTML" || params.Report_Type == "Both") {
                     archiveArtifacts 'test_reports/**'
                 }
             }
