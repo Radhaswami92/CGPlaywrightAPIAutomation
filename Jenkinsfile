@@ -10,7 +10,7 @@ pipeline {
             steps {
                 bat '''
                     docker run --rm ^
-                    -e TARGET_ENV=''' + params.Environment_Tag + ''' ^
+                    -e TARGET_ENV=''' + params.Environment + ''' ^
                     -v "%WORKSPACE%":/workspace ^
                     -w /workspace ^
                     mcr.microsoft.com/playwright/python:v1.60.0-noble ^
