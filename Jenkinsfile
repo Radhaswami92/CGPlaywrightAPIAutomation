@@ -13,6 +13,8 @@ pipeline {
         stage('Run Tests inside Playwright Container') {
             steps {
                 sh """
+                    mkdir -p test_reports
+                    python -m pip install --upgrade pip
                     pip install -r requirements.txt
                     python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=${params.Environment} --alluredir=allure-results --html=test_reports/report.html
                 """
