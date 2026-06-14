@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: "${params.Branch_Name}"
+                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: "${env.Branch_Name}"
             }
         }
         stage('Run Tests inside Playwright Container') {
