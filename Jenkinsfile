@@ -10,10 +10,11 @@ pipeline {
             steps {
                 bat '''
                     docker run --rm ^
+                    -e TARGET_ENV=''' + env.Environment_Tag + ''' ^
                     -v "%WORKSPACE%":/workspace ^
                     -w /workspace ^
                     mcr.microsoft.com/playwright/python:v1.60.0-noble ^
-                    bash -c "python -m pip install --upgrade pip && pip install -r requirements.txt && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=${env.Environment} --alluredir=allure-results"
+                    bash -c "python -m pip install --upgrade pip && pip install -r requirements.txt && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=$TARGET_ENV --alluredir=allure-results"
                 '''
             }
         }
