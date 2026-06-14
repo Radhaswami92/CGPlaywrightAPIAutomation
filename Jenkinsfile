@@ -1,21 +1,21 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image "mcr.microsoft.com/playwright/python:v1.60.0-noble"
+        }
+    }
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: "${params.Branch_Name}"
+                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: "docker_linux_jenkins"
             }
         }
         stage('Run Tests inside Playwright Container') {
             steps {
-                bat '''
-                    docker run --rm ^
-                    -e TARGET_ENV=''' + params.Environment + ''' ^
-                    -v "%WORKSPACE%":/workspace ^
-                    -w /workspace ^
-                    mcr.microsoft.com/playwright/python:v1.60.0-noble ^
-                    bash -c "python -m pip install --upgrade pip && pip install -r requirements.txt && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=$TARGET_ENV --alluredir=allure-results --html=test_reports/report.html"
-                '''
+                sh """
+                    pip install -r requirements.txt
+                    python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=${params.Environment} --alluredir=allure-results --html=test_reports/report.html
+                """
             }
         }
     }
