@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: 'master'
+                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: "${env.Branch_Name}"
             }
         }
         stage('Run Tests inside Playwright Container') {
@@ -13,7 +13,7 @@ pipeline {
                     -v "%WORKSPACE%":/workspace ^
                     -w /workspace ^
                     mcr.microsoft.com/playwright/python:v1.60.0-noble ^
-                    bash -c "python -m pip install --upgrade pip && pip install -r requirements.txt && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --alluredir=allure-results"
+                    bash -c "python -m pip install --upgrade pip && pip install -r requirements.txt && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=${env.Environment} --alluredir=allure-results"
                 '''
             }
         }
