@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: "${env.Branch_Name}"
+                git url: 'https://github.com/Radhaswami92/CGPlaywrightAPIAutomation.git', branch: "${params.Branch_Name}"
             }
         }
         stage('Run Tests inside Playwright Container') {
@@ -22,12 +22,11 @@ pipeline {
     post {
         always {
             script {
-                if (${env.Report_Type} == "Allure" || ${env.Report_Type} == "Both") {
+                if (${params.Report_Type} == "Allure" || ${params.Report_Type} == "Both") {
                     allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
                 }
-                if (${env.Report_Type} == "HTML" || ${env.Report_Type} == "Both") {
+                if (${params.Report_Type} == "HTML" || ${params.Report_Type} == "Both") {
                     archiveArtifacts 'test_reports/**'
-
                 }
             }
             cleanWs()
