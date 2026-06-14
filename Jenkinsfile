@@ -14,14 +14,22 @@ pipeline {
                     -v "%WORKSPACE%":/workspace ^
                     -w /workspace ^
                     mcr.microsoft.com/playwright/python:v1.60.0-noble ^
-                    bash -c "python -m pip install --upgrade pip && pip install -r requirements.txt && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=$TARGET_ENV --alluredir=allure-results"
+                    bash -c "python -m pip install --upgrade pip && pip install -r requirements.txt && python -m pytest Learn_Playwright_BDD_Framework/StepDefinitionFiles --url_name=$TARGET_ENV --alluredir=allure-results --html=test_reports/report.html"
                 '''
             }
         }
     }
     post {
         always {
-            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            script {
+                if (${env.Report_Type} == "Allure" || ${env.Report_Type} == "Both") {
+                    allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                }
+                if (${env.Report_Type} == "HTML" || ${env.Report_Type} == "Both") {
+                    archiveArtifacts 'test_reports/**'
+
+                }
+            }
             cleanWs()
         }
     }

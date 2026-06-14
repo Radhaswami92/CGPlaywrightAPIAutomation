@@ -5,8 +5,10 @@ from pytest_bdd import given, when, then, parsers, scenarios
 from Learn_Playwright_BDD_Framework.PageObjects.LoginPage import LoginPage
 from Learn_Playwright_BDD_Framework.Utils.apiBase import APIUtils
 from Learn_Playwright_BDD_Framework.conftest import browser_instance
+from pathlib import Path
 
-scenarios(r"C:\Users\JEET BISWAS\PycharmProjects\CGPlaywrightAPIAutomation\Learn_Playwright_BDD_Framework\features\OrderTransaction.feature")
+root_f = Path(__file__).resolve().parent /"features"/ "OrderTransaction.feature"
+scenarios(str(root_f))
 
 
 @pytest.fixture()
